@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0;
+        }
+       .bigbox{
+            width:650px;
+            height: 600px;
+            background: url(turntable-bg.jpg);
+            margin: 0 auto;
+            border: 1px solid #f00;
+            position: relative
+        }
+    #turntable{
+            width: 450px;
+            height: 450px;
+            position: absolute;
+            left: 116px;
+            top: 60px;
+        }
+       #pointer{
+            width:174px;
+            height: 228px;
+            position: absolute;
+            top: 157px;
+            left: 255px;
+        }
+    </style>
+
+
+</head>
+<body>
+<div class="bigbox">
+    <img id="turntable" src="turntable.png" alt="">
+    <img id="pointer" src="pointer.png" alt="">
+</div>
+<script>
+    var turntable = document.getElementById('turntable');
+    var pointer = document.getElementById('pointer');
+    var lottery = function() {
+        var randomNumber = Math.floor(Math.random() * 10);
+        if(randomNumber < 1) {
+            return {
+                code: 1,
+                text: "欧皇"
+            };
+        } else if(randomNumber < 2) {
+            return {
+                code: 2,
+                text: "欧洲人"
+            };
+        } else if(randomNumber < 3) {
+            return {
+                code: 3,
+                text: "三等奖"
+            };
+        } else if(randomNumber < 4) {
+            return {
+                code: 4,
+                text: "四等奖"
+            };
+        } else if(randomNumber < 5) {
+            return {
+                code: 5,
+                text: "五等奖"
+            };
+        } else if(randomNumber < 6) {
+            return {
+                code: 6,
+                text: "非洲人"
+            };
+        } else {
+            return {
+                code: 7,
+                text: "非酋"
+            };
+        }
+    };
+    var rotate = function() {
+        turntable.style.transition = 'all 5s';
+        var x = lottery();
+        console.log(x);
+        var currentAngle = 30 + (360 / 7) * (x.code - 1);
+        turntable.style.transform = 'rotate(' + (currentAngle + 360 * 5) + 'deg)';
+        setTimeout(function() {
+            turntable.style.transition = 'all 0s';
+            turntable.style.transform = 'rotate(' + currentAngle + 'deg)';
+            alert(x.text);
+            canClick = true;
+        }, 5300);
+    }
+    var canClick = true;
+    pointer.onclick = function() {
+        if(canClick === true) {
+            rotate();
+        }
+        canClick = false;
+    }
+</script>
+</body>
+</html>

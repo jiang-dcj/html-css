@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tabs</title>
+    <script src="jquery.js" type="text/javascript" charset="utf-8"></script>
+    <style type="text/css">
+        #tab{
+            position: relative;
+        }
+        #tab div{
+            width: 300px;
+            height: 200px;
+            background: #85d7f7;
+            position: absolute;
+            top: 50px;
+            display:none;
+
+        }
+        #tab button{
+            width: 100px;
+            height: 50px;
+            background: red;
+            display: block;
+            float: left;
+            border: none;
+        }
+    </style>
+
+</head>
+<body>
+    <div id="tab">
+        <button>11111</button>
+        <button>22222</button>
+        <button>33333</button>
+        <div>aaaaa</div>
+        <div>bbbbb</div>
+        <div>ccccc</div>
+    </div>
+    <script>
+            $('#tab button').click(function() {
+                $('#tab div').css('display', 'none');
+                $('#tab div').eq($(this).index()).css('display', 'block');
+            })
+    </script>
+</body>
+</html>

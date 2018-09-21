@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jquery.js" type="text/javascript" charset="utf-8"></script>
+    <style type="text/css">
+        #smallbox {
+            width:300px;
+            height:300px;
+            float:left;
+            position:relative;
+        }
+       #smallbox img {
+            width:300px;
+            height:300px;
+        }
+        #tool {
+            width:150px;
+            height:150px;
+            background-color: rgba(211, 238, 233, 0.8);
+            opacity:0.6;
+            filter:alpha(opacity=60);
+            position:absolute;
+            left:0;
+            top:0;
+            display:none;
+        }
+
+        #bigbox {
+            width:300px;
+            height:300px;
+            overflow:hidden;
+            float:left;
+            position:relative;
+            display:none;
+        }
+
+        #bigbox img {
+            width:600px;
+            height:600px;
+            position:absolute;
+        }
+    </style>
+</head>
+<body>
+<div id="smallbox">
+    <img src="1.jpg"/>
+    <div id="tool"></div>
+</div>
+<div id="bigbox">
+    <img src="1.jpg" id="bigimg" />
+</div>
+<script>
+    var smallbox = $('#smallbox');
+        smallbox.mouseover(function(){
+            $('#tool').css("display","block");
+            $('#bigbox').css("display","block");
+        });
+        smallbox.mouseout(function(){
+            $('#tool').css("display","none");
+            $('#bigbox').css("display","none");
+        });
+
+        smallbox.mouseover(function (e) {
+            var bigImg = document.getElementById("bigimg");
+            var _e = window.event||e;
+            var x = _e.clientX-this.offsetLeft-tool.offsetWidth/2;
+            var y = _e.clientY-this.offsetTop-tool.offsetHeight/2;
+            if(x<0){
+                x = 0;
+            }
+            if(y<0){
+                y = 0;
+            }
+            if(x>this.offsetWidth-tool.offsetWidth){
+                x = this.offsetWidth-tool.offsetWidth;
+            }
+            if(y>this.offsetHeight-tool.offsetHeight){
+                y = this.offsetHeight-tool.offsetHeight;
+            }
+            tool.style.left = x + "px";
+            tool.style.top = y + "px";
+            bigImg.style.left = -x*2 + "px";
+            bigImg.style.top = -y*2 + "px";
+        })
+
+
+
+</script>
+</body>
+</html>
