@@ -1,5 +1,5 @@
 # warehouse
-<a href="https://jiang-dcj.github.io/warehouse/plan/" target="blank">打飞机</a>：https://jiang-dcj.github.io/warehouse/plan/
+<a href="https://jiang-dcj.github.io/warehouse/plan/" target="blank">打飞机</a>：<a href="https://jiang-dcj.github.io/warehouse/plan/" target="blank">https://jiang-dcj.github.io/warehouse/plan/</a>
 <br>
 <a href="https://jiang-dcj.github.io/warehouse/Hearthstone/Hearthstone.html" target="blank">炉石传说</a>：https://jiang-dcj.github.io/warehouse/Hearthstone/Hearthstone.html
 <br>
