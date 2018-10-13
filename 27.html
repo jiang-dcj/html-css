@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <style type="text/css">
+        .bgRed{
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+<table>
+    <tr>
+        <th>a</th>
+        <th>a</th>
+        <th>a</th>
+        <th>a</th>
+    </tr>
+    <tr>
+    <td ><input type="checkbox" name="_dataCheckBox">1</td>
+    <td>bbbb</td>
+    <td>bbbb</td>
+    <td>bbbb</td>
+    </tr>
+    <tr>
+    <td ><input type="checkbox" name="_dataCheckBox">1</td>
+    <td>bbbb</td>
+    <td>bbbb</td>
+    <td>bbbb</td>
+    </tr>
+    <tr>
+        <td ><input type="checkbox" name="_dataCheckBox">1</td>
+        <td>bbbb</td>
+        <td>bbbb</td>
+        <td>bbbb</td>
+    </tr>
+</table>
+<script>
+    $("#checkAll").click(function () {
+        if ($('#checkAll').attr('checked')) {
+            $("[name='_dataCheckBox']").prop("checked", 'true');
+            $("[name='_dataCheckBox']").each(function () {
+                $(this).parent().parent().toggleClass("bgRed");
+            });
+        } else {
+            $("[name='_dataCheckBox']").removeAttr("checked");
+            $("[name='_dataCheckBox']").each(function () {
+                $(this).parent().parent().toggleClass("bgRed");
+            });
+        }
+    });
+
+
+    $("tr").first().nextAll().click(function () {
+
+        $(this).children().toggleClass("bgRed");
+        if ($(this).children().hasClass("bgRed")){
+            $(this).children().first().children().attr("checked", true);
+        } else {
+            $(this).children().first().children().attr("checked", false);
+        }
+    });
+
+</script>
+</body>
+</html>
