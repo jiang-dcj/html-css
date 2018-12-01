@@ -1,8 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>原生JavaScript轮播图</title>
     <style type="text/css">
         * {box-sizing:border-box}
         body {font-family: Verdana,sans-serif;}
@@ -13,7 +12,7 @@
             margin: auto;
         }
         .prev, .next {
-            width: 100px;
+            width: 50%;
             height: 100%;
             /*background: red;*/
             position: absolute;
@@ -27,10 +26,10 @@
             height: 20px;
             width: 20px;
             margin: 0 2px;
-            background-color: red;
+            background-color: #c9c9c9;
             border-radius: 50%;
             display: inline-block;
-            /*transition: background-color 0.6s ease;*/
+            transition: background-color 0.6s ease;
         }
         .active, .dot:hover {
             background-color: black;
@@ -53,6 +52,7 @@
 </head>
 <body>
 <div class="slideshow-container">
+    <h1>点击图片左侧切换上一张 点击图片右侧切换下一张</h1>
     <div class="mySlides fade">
         <img src="1.jpg" style="width:100%">
     </div>
@@ -83,15 +83,12 @@
 <script>
     var slideIndex = 1;
     showSlides(slideIndex);
-
     function plusSlides(n) {
         showSlides(slideIndex += n);
     }
-
     function currentSlide(n) {
         showSlides(slideIndex = n);
     }
-
     function showSlides(n) {
         var i;
         var slides = document.getElementsByClassName("mySlides");
